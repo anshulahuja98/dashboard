@@ -23,6 +23,8 @@ import {CreateFromFileComponent} from './from/file/component';
 import {CreateFromFormModule} from './from/form/module';
 import {CreateFromInputComponent} from './from/input/component';
 import {CreateRoutingModule} from './routing';
+import {CreateSecretComponent} from './from/createsecret/component';
+import {CreateSecretModule} from './from/createsecret/module';
 
 @NgModule({
   imports: [
@@ -31,7 +33,14 @@ import {CreateRoutingModule} from './routing';
     CreateFromFormModule,
     CreateServiceModule,
     CreateRoutingModule,
+    CreateFromFormModule,
+    CreateSecretModule,
   ],
-  declarations: [CreateComponent, CreateFromInputComponent, CreateFromFileComponent],
+  declarations: [
+    CreateComponent,
+    CreateFromInputComponent,
+    CreateFromFileComponent,
+    CreateSecretComponent,
+  ],
 })
 export class CreateModule {}
