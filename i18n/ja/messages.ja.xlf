@@ -834,6 +834,10 @@
           <context context-type="linenumber">184</context>
         </context-group>
         <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <context-group purpose="location">
           <context context-type="sourcefile">../src/app/frontend/resource/workloads/deployment/detail/template.html</context>
           <context context-type="linenumber">231</context>
         </context-group>
@@ -2990,6 +2994,14 @@
           <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="8f4a4cddd8130e9d625e4a7eaea26a0cc892082d" datatype="html">
+        <source>Create Secret</source>
+        <target state="new">Create Secret</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/template.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="d5bf8edfc35f18bb70804a15ad79a70417be988f" datatype="html">
         <source>Create a new namespace</source>
         <target>新しいネームスペースの作成</target>
@@ -3025,6 +3037,10 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">../src/app/frontend/create/from/form/createsecret/template.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
           <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
@@ -3079,6 +3095,14 @@
           <context context-type="sourcefile">../src/app/frontend/create/from/form/createsecret/template.html</context>
           <context context-type="linenumber">81</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="70a67e04629f6d412db0a12d51820b480788d795" datatype="html">
         <source>Create</source>
@@ -3099,6 +3123,10 @@
           <context context-type="sourcefile">../src/app/frontend/create/from/form/createsecret/template.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="f4958332544037105533688bf41b27d252e5c607" datatype="html">
         <source>The new secret will be added to the cluster</source>
@@ -3107,12 +3135,20 @@
           <context context-type="sourcefile">../src/app/frontend/create/from/form/createsecret/template.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="0d2ab5feae3bde82e357ae93420738e775a69f50" datatype="html">
         <source>Secret name</source>
         <target>シークレット名</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../src/app/frontend/create/from/form/createsecret/template.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
           <context context-type="linenumber">29</context>
         </context-group>
       </trans-unit>
@@ -3127,6 +3163,10 @@
           <context context-type="sourcefile">../src/app/frontend/create/from/form/createsecret/template.html</context>
           <context context-type="linenumber">39</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="dd878f1b75bd7baf03bc91714094e83ec4f513dd" datatype="html">
         <source>
@@ -3137,12 +3177,20 @@
           <context context-type="sourcefile">../src/app/frontend/create/from/form/createsecret/template.html</context>
           <context context-type="linenumber">43</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2244c094c4409a5d5bb05ae8a079db563b730d09" datatype="html">
         <source>A secret with the specified name will be added to the cluster in the namespace.</source>
         <target>指定された名前のシークレットがネームスペースのクラスターに追加されます。</target>
         <context-group purpose="location">
           <context context-type="sourcefile">../src/app/frontend/create/from/form/createsecret/template.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
           <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
@@ -3419,6 +3467,10 @@
           <context context-type="sourcefile">../src/app/frontend/create/from/form/template.html</context>
           <context context-type="linenumber">198</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="9837a4e132ec773fb004737601db78f448ba2534" datatype="html">
         <source>
@@ -3600,6 +3652,38 @@
         <context-group purpose="location">
           <context context-type="sourcefile">../src/app/frontend/create/from/form/template.html</context>
           <context context-type="linenumber">371</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e5622f08861a4ca6d6ee9e43bb15213f4ae43180" datatype="html">
+        <source>
+                Create a new namespace...
+              </source>
+        <target state="new">
+                Create a new namespace...
+              </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="53014bcc089274df6cc245fdbce90ff4d0b046a0" datatype="html">
+        <source>Create
+    </source>
+        <target state="new">Create
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="29a3473e5e85ae4113b3d796060d5b4c8dfbf18a" datatype="html">
+        <source>Cancel
+    </source>
+        <target state="new">Cancel
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">../src/app/frontend/create/from/upsertsecret/template.html</context>
+          <context context-type="linenumber">141</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4f59d1501469234b7a31dd312901ef0e208cab35" datatype="html">
