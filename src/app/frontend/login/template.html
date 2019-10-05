@@ -101,6 +101,11 @@ limitations under the License.
                      required
                      (change)="onChange($event)">
             </mat-form-field>
+            <ng-template ngFor let-error [ngForOf]="errors" ngProjectAs="mat-error" class="kd-login-input">
+              <mat-error *ngIf="haveErrors()" class="kd-login-input">
+                  {{error.status}} ({{error.code}}): {{error.message}}
+              </mat-error>
+            </ng-template>
           </div>
 
           <div *ngSwitchCase="loginModes.Kubeconfig"
