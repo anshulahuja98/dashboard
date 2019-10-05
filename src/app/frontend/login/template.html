@@ -71,6 +71,10 @@ limitations under the License.
                    type="password"
                    required
                    (change)="onChange($event)">
+            <!-- <mat-error 18n>
+                {{errors.0.status}} ({{errors.0.code}}): {{errors.0.message}}
+            </mat-error>
+            -->
           </mat-form-field>
 
           <div *ngSwitchCase="loginModes.Basic"
