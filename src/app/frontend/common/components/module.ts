@@ -92,6 +92,7 @@ import {UploadFileComponent} from './uploadfile/component';
 import {WorkloadStatusComponent} from './workloadstatus/component';
 import {ZeroStateComponent} from './zerostate/component';
 import {AnnotationsComponent} from './annotations/annotations.component';
+import {SerializedReferenceComponent} from './serialized-reference/serialized-reference.component';
 
 const components = [
   ActionbarDetailActionsComponent,
@@ -190,7 +191,7 @@ const components = [
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [...components, AnnotationsComponent],
+  declarations: [...components, AnnotationsComponent, SerializedReferenceComponent],
   exports: [...components],
   entryComponents: [ChipDialog, RowDetailComponent, MenuComponent, NamespaceChangeDialog],
 })
