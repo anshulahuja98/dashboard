@@ -91,6 +91,7 @@ import {TextInputComponent} from './textinput/component';
 import {UploadFileComponent} from './uploadfile/component';
 import {WorkloadStatusComponent} from './workloadstatus/component';
 import {ZeroStateComponent} from './zerostate/component';
+import {AnnotationsComponent} from './annotations/annotations.component';
 
 const components = [
   ActionbarDetailActionsComponent,
@@ -189,7 +190,7 @@ const components = [
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [...components],
+  declarations: [...components, AnnotationsComponent],
   exports: [...components],
   entryComponents: [ChipDialog, RowDetailComponent, MenuComponent, NamespaceChangeDialog],
 })
