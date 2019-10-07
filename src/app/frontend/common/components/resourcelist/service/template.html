@@ -68,7 +68,8 @@ limitations under the License.
         <mat-header-cell *matHeaderCellDef
                          i18n>Labels</mat-header-cell>
         <mat-cell *matCellDef="let service">
-          <kd-chips [map]="service.objectMeta.labels"></kd-chips>
+          <!--<kd-chips [map]="service.objectMeta.labels"></kd-chips>-->
+          <kd-annotations [map]="objectMeta?.annotations" minChipsVisible="4"></kd-annotations>
         </mat-cell>
       </ng-container>
 
