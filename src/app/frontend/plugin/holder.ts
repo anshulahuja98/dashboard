@@ -53,6 +53,7 @@ export class PluginHolderComponent implements OnInit {
         );
         this.vcRef.createComponent(compFactory);
       } catch (e) {
+        console.log(e);
         this.entryError = true;
       }
     });
