@@ -16,6 +16,9 @@ limitations under the License.
 
 <a mat-button
    class="kd-nav-item-button"
-   queryParamsHandling="preserve">
+   [routerLink]="state"
+   [routerLinkActiveOptions]="{exact: exact}"
+   queryParamsHandling="preserve"
+   [routerLinkActive]="['kd-nav-item-button-active']">
   <ng-content></ng-content>
 </a>
