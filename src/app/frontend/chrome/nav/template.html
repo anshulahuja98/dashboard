@@ -14,144 +14,38 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<mat-drawer-container class="kd-nav">
-  <mat-drawer class="kd-nav"
-              mode="side">
-    <div class="kd-nav-group">
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/cluster"
-                   i18n>Cluster
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/clusterrole"
-                   i18n>Cluster Roles
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/namespace"
-                   i18n>Namespaces
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/node"
-                   i18n>Nodes
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/persistentvolume"
-                   i18n>Persistent Volumes
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/storageclass"
-                   i18n>Storage Classes
-      </kd-nav-item>
-    </div>
 
-    <mat-divider></mat-divider>
+<mat-drawer-container class="kd-nav" autosize>
+  <mat-drawer #drawer class="kd-nav" mode="side">
+    <div class="kd-nav-group" (mouseover)="expandNav=true">
 
-    <kd-namespace-selector></kd-namespace-selector>
+      <kd-nav-item class="kd-nav-group-item">
+        <mat-icon class="kd-primary-toolbar-icon">group_work</mat-icon>
+        <span *ngIf="expandNav"> Cluster
+        </span>
+      </kd-nav-item>
+      <kd-nav-item class="kd-nav-group-item">
+        <mat-icon class="kd-primary-toolbar-icon">work</mat-icon>
+        <span *ngIf="expandNav"> Workloads</span>
+      </kd-nav-item>
+      <kd-nav-item class="kd-nav-group-item">
+        <mat-icon class="kd-primary-toolbar-icon">equalizer</mat-icon>
+        <span *ngIf="expandNav"> Discovery and Load Balancing</span>
+      </kd-nav-item>
+      <kd-nav-item class="kd-nav-group-item" *ngIf="!expandNav">
+        <mat-icon class="kd-primary-toolbar-icon">toc</mat-icon>
+      </kd-nav-item>
+      <kd-namespace-selector *ngIf="expandNav"></kd-namespace-selector>
 
-    <div class="kd-nav-group">
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/overview"
-                   i18n>Overview
-      </kd-nav-item>
 
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/workloads"
-                   i18n>Workloads
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/cronjob"
-                   i18n>Cron Jobs
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/daemonset"
-                   i18n>Daemon Sets
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/deployment"
-                   i18n>Deployments
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/job"
-                   i18n>Jobs
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/pod"
-                   i18n>Pods
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/replicaset"
-                   i18n>Replica Sets
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/replicationcontroller"
-                   i18n>Replication Controllers
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/statefulset"
-                   i18n>Stateful Sets
-      </kd-nav-item>
+      <button type="button" mdbBtn color="primary" class="waves-light"
+              mdbPopover="And here some amazing content. It's very engaging. Right?"
+              placement="right"
+              mdbPopoverHeader="Popover on right" mdbWavesEffect>
+        Popover on right
+      </button>
 
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/discovery"
-                   i18n>Discovery and Load Balancing
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/ingress"
-                   i18n>Ingresses
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/service"
-                   i18n>Services
-      </kd-nav-item>
-
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/config"
-                   i18n>Config and Storage
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/configmap"
-                   i18n>Config Maps
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/persistentvolumeclaim"
-                   i18n>Persistent Volume Claims
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/secret"
-                   i18n>Secrets
-      </kd-nav-item>
-      <kd-nav-item *ngIf="showPlugin()"
-                   class="kd-nav-group-item"
-                   state="/plugin"
-                   i18n>Plugins
-      </kd-nav-item>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <div class="kd-nav-group">
-      <kd-nav-item class="kd-nav-group-item"
-                   id="sidebar-crd"
-                   state="/customresourcedefinition"
-                   [exact]="true"
-                   i18n>Custom Resource Definitions
-      </kd-nav-item>
-
-      <kd-pinner-nav kind="customresourcedefinition"></kd-pinner-nav>
-    </div>
-
-    <mat-divider></mat-divider>
-
-    <div class="kd-nav-group">
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/settings"
-                   i18n>Settings
-      </kd-nav-item>
-
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/about"
-                   i18n>About
-      </kd-nav-item>
     </div>
   </mat-drawer>
 </mat-drawer-container>
+

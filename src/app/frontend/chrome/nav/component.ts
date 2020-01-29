@@ -26,6 +26,7 @@ import {PluginsConfigService} from '../../common/services/global/plugin';
 export class NavComponent implements OnInit {
   @ViewChild(MatDrawer, {static: true}) private readonly nav_: MatDrawer;
 
+  expandNav = false;
   constructor(
     private readonly navService_: NavService,
     private readonly pluginsConfigService_: PluginsConfigService,
