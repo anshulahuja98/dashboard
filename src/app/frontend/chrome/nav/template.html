@@ -15,27 +15,155 @@ limitations under the License.
 -->
 
 
-<mat-drawer-container class="kd-nav" autosize>
+<mat-drawer-container class="kd-nav" (mouseover)="expandOnHover=true"
+                      (mouseleave)="expandOnHover=false"
+                      autosize>
   <mat-drawer #drawer class="kd-nav" mode="side">
-    <div class="kd-nav-group" (mouseover)="expandNav=true">
+    <div class="kd-nav-group">
+      <mat-accordion class="kd-nav-accordion">
+        <kd-nav-item class="kd-nav-icon" *ngIf="!expandOnHover && !expandOnHamburger">
+          <mat-icon color="primary">group_work</mat-icon>
+        </kd-nav-item>
+        <mat-expansion-panel *ngIf="expandOnHover || expandOnHamburger" #clusterMenu
+                             (mouseover)="clusterMenu.open()"
+                             (mouseleave)="clusterMenu.close()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon color="primary">group_work</mat-icon>
+            </mat-panel-title>
+            <mat-panel-description>
+              Cluster
+            </mat-panel-description>
 
-      <kd-nav-item class="kd-nav-group-item">
-        <mat-icon class="kd-primary-toolbar-icon">group_work</mat-icon>
-        <span *ngIf="expandNav"> Cluster
-        </span>
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-group-item">
-        <mat-icon class="kd-primary-toolbar-icon">work</mat-icon>
-        <span *ngIf="expandNav"> Workloads</span>
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-group-item">
-        <mat-icon class="kd-primary-toolbar-icon">equalizer</mat-icon>
-        <span *ngIf="expandNav"> Discovery and Load Balancing</span>
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-group-item" *ngIf="!expandNav">
-        <mat-icon class="kd-primary-toolbar-icon">toc</mat-icon>
-      </kd-nav-item>
-      <kd-namespace-selector *ngIf="expandNav"></kd-namespace-selector>
+          </mat-expansion-panel-header>
+          <kd-nav-item class="kd-nav-item"
+                       state="/cluster"
+                       i18n>Cluster
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/clusterrole"
+                       i18n>Cluster Roles
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/namespace"
+                       i18n>Namespaces
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/node"
+                       i18n>Nodes
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/persistentvolume"
+                       i18n>Persistent Volumes
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/storageclass"
+                       i18n>Storage Classes
+          </kd-nav-item>
+        </mat-expansion-panel>
+        <kd-nav-item class="kd-nav-icon" *ngIf="!expandOnHover && !expandOnHamburger">
+          <mat-icon color="primary">work</mat-icon>
+        </kd-nav-item>
+        <mat-expansion-panel #workloadsMenu *ngIf="expandOnHover || expandOnHamburger"
+                             (mouseover)="workloadsMenu.open()"
+                             (mouseleave)="workloadsMenu.close()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon color="primary">work</mat-icon>
+            </mat-panel-title>
+            <mat-panel-description>
+              Workloads
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <kd-nav-item class="kd-nav-group-item"
+                       state="/overview"
+                       i18n>Overview
+          </kd-nav-item>
+
+          <kd-nav-item class="kd-nav-group-item"
+                       state="/workloads"
+                       i18n>Workloads
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/cronjob"
+                       i18n>Cron Jobs
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/daemonset"
+                       i18n>Daemon Sets
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/deployment"
+                       i18n>Deployments
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/job"
+                       i18n>Jobs
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/pod"
+                       i18n>Pods
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/replicaset"
+                       i18n>Replica Sets
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/replicationcontroller"
+                       i18n>Replication Controllers
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/statefulset"
+                       i18n>Stateful Sets
+          </kd-nav-item>
+        </mat-expansion-panel>
+        <kd-nav-item class="kd-nav-icon" *ngIf="!expandOnHover && !expandOnHamburger">
+          <mat-icon color="primary">equalizer</mat-icon>
+        </kd-nav-item>
+        <mat-expansion-panel #discoveryMenu *ngIf="expandOnHover || expandOnHamburger"
+                             (mouseover)="discoveryMenu.open()"
+                             (mouseleave)="discoveryMenu.close()">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon color="primary">equalizer</mat-icon>
+            </mat-panel-title>
+            <mat-panel-description>
+              Discovery and Load Balancing
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <kd-nav-item class="kd-nav-item"
+                       state="/ingress"
+                       i18n>Ingresses
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/service"
+                       i18n>Services
+          </kd-nav-item>
+
+          <kd-nav-item class="kd-nav-group-item"
+                       state="/config"
+                       i18n>Config and Storage
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/configmap"
+                       i18n>Config Maps
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/persistentvolumeclaim"
+                       i18n>Persistent Volume Claims
+          </kd-nav-item>
+          <kd-nav-item class="kd-nav-item"
+                       state="/secret"
+                       i18n>Secrets
+          </kd-nav-item>
+        </mat-expansion-panel>
+        <kd-nav-item class="kd-nav-icon" *ngIf="!expandOnHover && !expandOnHamburger">
+          <mat-icon color="primary">toc</mat-icon>
+        </kd-nav-item>
+        <kd-namespace-selector *ngIf="expandOnHover || expandOnHamburger"
+                               class="ns-selector"></kd-namespace-selector>
+      </mat-accordion>
+
     </div>
   </mat-drawer>
 </mat-drawer-container>
