@@ -26,6 +26,13 @@ import {PluginsConfigService} from '../../common/services/global/plugin';
 export class NavComponent implements OnInit {
   @ViewChild(MatDrawer, {static: true}) private readonly nav_: MatDrawer;
 
+  expandOnHover = false;
+  expandOnHamburger = false;
+
+  toggleExpandOnHamburger(): void {
+    this.expandOnHamburger = !this.expandOnHamburger;
+  }
+
   constructor(
     private readonly navService_: NavService,
     private readonly pluginsConfigService_: PluginsConfigService,

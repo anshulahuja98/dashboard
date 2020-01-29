@@ -11,8 +11,8 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 @import '../../variables';
+
 
 .kd-nav {
   background-color: transparent;
@@ -34,6 +34,7 @@
 
 .kd-nav-group {
   margin-right: $baseline-grid;
+  margin-top: $baseline-grid;
 
   &:last-child {
     > .kd-nav-item {
@@ -50,4 +51,13 @@
 
 .kd-nav-item {
   margin-left: 3 * $baseline-grid;
+}
+
+.kd-nav-icon {
+  margin-left: 1.5 * $baseline-grid;
+  margin-top: 1.5 * $baseline-grid;
+}
+
+.ns-selector {
+  margin-top: 1.5 * $baseline-grid;
 }
