@@ -67,47 +67,54 @@ limitations under the License.
                    id="nav-workloads"
                    i18n>Workloads
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item *ngIf="showCronjobs"
+                   class="kd-nav-item"
                    state="/cronjob"
                    id="nav-cronjob"
                    i18n>Cron Jobs
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item *ngIf="showDaemonsets"
+                   class="kd-nav-item"
                    state="/daemonset"
                    id="nav-daemonset"
                    i18n>Daemon Sets
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item *ngIf="showDeployments"
+                   class="kd-nav-item"
                    state="/deployment"
                    id="nav-deployment"
                    i18n>Deployments
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item *ngIf="showJobs"
+                   class="kd-nav-item"
                    state="/job"
                    id="nav-job"
                    i18n>Jobs
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item *ngIf="showPods"
+                   class="kd-nav-item"
                    state="/pod"
                    id="nav-pod"
                    i18n>Pods
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item *ngIf="showReplicasets"
+                   class="kd-nav-item"
                    state="/replicaset"
                    id="nav-replicaset"
                    i18n>Replica Sets
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item *ngIf="showReplicationcontrollers"
+                   class="kd-nav-item"
                    state="/replicationcontroller"
                    id="nav-replicationcontroller"
                    i18n>Replication Controllers
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item *ngIf="showStatefulsets"
+                   class="kd-nav-item"
                    state="/statefulset"
                    id="nav-statefulset"
                    i18n>Stateful Sets
       </kd-nav-item>
-
       <kd-nav-item class="kd-nav-group-item"
                    state="/discovery"
                    id="nav-discovery"
