@@ -17,6 +17,8 @@ import {MatDrawer} from '@angular/material';
 
 import {NavService} from '../../common/services/nav/service';
 import {PluginsConfigService} from '../../common/services/global/plugin';
+import {CanIResponse} from "@api/backendapi";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'kd-nav',
@@ -25,18 +27,69 @@ import {PluginsConfigService} from '../../common/services/global/plugin';
 })
 export class NavComponent implements OnInit {
   @ViewChild(MatDrawer, {static: true}) private readonly nav_: MatDrawer;
+  public showCronjobs: boolean;
+  public showDaemonsets: boolean;
+  public showDeployments: boolean;
+  public showJobs: boolean;
+  public showPods: boolean;
+  public showReplicasets: boolean;
+  public showReplicationcontrollers: boolean;
+  public showStatefulsets: boolean;
 
   constructor(
     private readonly navService_: NavService,
     private readonly pluginsConfigService_: PluginsConfigService,
-  ) {}
+    private readonly http_: HttpClient,
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.navService_.setNav(this.nav_);
     this.navService_.setVisibility(true);
+    this.showCronjobs = this.canIListResource('cronjobs');
+    this.showDaemonsets = this.canIListResource('daemonsets');
+    this.showDeployments = this.canIListResource('deployments');
+    this.showJobs = this.canIListResource('jobs');
+    this.showPods = this.canIListResource('pods');
+    this.showReplicasets = this.canIListResource('replicasets');
+    this.showReplicationcontrollers = this.canIListResource('replicationcontrollers');
+    this.showStatefulsets = this.canIListResource('statefulsets');
+
+    console.log(this.showCronjobs,
+      this.showDaemonsets,
+      this.showDeployments,
+      this.showJobs,
+      this.showPods,
+      this.showReplicasets,
+      this.showReplicationcontrollers,
+      this.showStatefulsets)
+  }
+
+  canIListResource(resource: String): boolean {
+    var show = false;
+    const httpOptions = {
+      method: 'GET',
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    this.http_.get<CanIResponse>(`api/v1/cani/${resource}`, httpOptions)
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        show = response.allowed
+      });
+    console.log(show);
+
+    return show;
   }
 
   showPlugin(): boolean {
     return this.pluginsConfigService_.status() === 200;
+  }
+
+  getShowPods(): boolean {
+    return this.showPods;
   }
 }
