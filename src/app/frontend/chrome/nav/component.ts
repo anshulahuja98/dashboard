@@ -27,6 +27,11 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 })
 export class NavComponent implements OnInit {
   @ViewChild(MatDrawer, {static: true}) private readonly nav_: MatDrawer;
+  public showClusterroles: boolean;
+  public showNamespaces: boolean;
+  public showNodes: boolean;
+  public showPersistentvolumes: boolean;
+  public showStorageclasses: boolean;
   public showCronjobs: boolean;
   public showDaemonsets: boolean;
   public showDeployments: boolean;
@@ -35,6 +40,11 @@ export class NavComponent implements OnInit {
   public showReplicasets: boolean;
   public showReplicationcontrollers: boolean;
   public showStatefulsets: boolean;
+  public showIngresses: boolean;
+  public showServices: boolean;
+  public showConfigmaps: boolean;
+  public showPersistentvolumeclaims: boolean;
+  public showSecrets: boolean;
 
   constructor(
     private readonly navService_: NavService,
@@ -44,44 +54,45 @@ export class NavComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): void {
     this.navService_.setNav(this.nav_);
     this.navService_.setVisibility(true);
-    this.showCronjobs = this.canIListResource('cronjobs');
-    this.showDaemonsets = this.canIListResource('daemonsets');
-    this.showDeployments = this.canIListResource('deployments');
-    this.showJobs = this.canIListResource('jobs');
-    this.showPods = this.canIListResource('pods');
-    this.showReplicasets = this.canIListResource('replicasets');
-    this.showReplicationcontrollers = this.canIListResource('replicationcontrollers');
-    this.showStatefulsets = this.canIListResource('statefulsets');
 
-    console.log(this.showCronjobs,
-      this.showDaemonsets,
-      this.showDeployments,
-      this.showJobs,
-      this.showPods,
-      this.showReplicasets,
-      this.showReplicationcontrollers,
-      this.showStatefulsets)
+    this.showClusterroles = <boolean>await this.canIListResource('clusterroles');
+    this.showNamespaces = <boolean>await this.canIListResource('namespaces');
+    this.showNodes = <boolean>await this.canIListResource('nodes');
+    this.showPersistentvolumes = <boolean>await this.canIListResource('persistentvolumes');
+    this.showStorageclasses = <boolean>await this.canIListResource('storageclasses');
+    this.showCronjobs = <boolean>await this.canIListResource('cronjobs');
+    this.showDaemonsets = <boolean>await this.canIListResource('daemonsets');
+    this.showDeployments = <boolean>await this.canIListResource('deployments');
+    this.showJobs = <boolean>await this.canIListResource('jobs');
+    this.showPods = <boolean>await this.canIListResource('pods');
+    this.showReplicasets = <boolean>await this.canIListResource('replicasets');
+    this.showReplicationcontrollers = <boolean>await this.canIListResource('replicationcontrollers');
+    this.showStatefulsets = <boolean>await this.canIListResource('statefulsets');
+    this.showIngresses = <boolean>await this.canIListResource('ingresses');
+    this.showServices = <boolean>await this.canIListResource('services');
+    this.showConfigmaps = <boolean>await this.canIListResource('configmaps');
+    this.showPersistentvolumeclaims = <boolean>await this.canIListResource('persistentvolumeclaims');
+    this.showSecrets = <boolean>await this.canIListResource('secrets');
   }
 
-  canIListResource(resource: String): boolean {
-    var show = false;
+  async canIListResource(resource: String): Promise<boolean> {
+    let show = false;
     const httpOptions = {
       method: 'GET',
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
     };
-    this.http_.get<CanIResponse>(`api/v1/cani/${resource}`, httpOptions)
+    await this.http_.get<CanIResponse>(`api/v1/cani/${resource}`, httpOptions)
       .toPromise()
       .then(response => {
         console.log(response);
         show = response.allowed
       });
     console.log(show);
-
     return show;
   }
 
