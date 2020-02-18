@@ -160,8 +160,10 @@ limitations under the License.
         <kd-nav-item class="kd-nav-icon" *ngIf="!expandOnHover && !expandOnHamburger">
           <mat-icon color="primary">toc</mat-icon>
         </kd-nav-item>
+        <span (mouseover)="expandOnHamburger=true">
         <kd-namespace-selector *ngIf="expandOnHover || expandOnHamburger"
                                class="ns-selector"></kd-namespace-selector>
+        </span>
       </mat-accordion>
 
     </div>
