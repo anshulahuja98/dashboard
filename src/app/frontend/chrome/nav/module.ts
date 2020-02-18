@@ -23,9 +23,10 @@ import {HamburgerComponent} from './hamburger/component';
 import {NavItemComponent} from './item/component';
 import {PinnerNavComponent} from './pinner/component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {HesitateDirective} from "./hesitate.directive";
 
 @NgModule({
-  declarations: [NavComponent, NavItemComponent, HamburgerComponent, PinnerNavComponent],
+  declarations: [NavComponent, NavItemComponent, HamburgerComponent, PinnerNavComponent, HesitateDirective],
   exports: [NavComponent, NavItemComponent, HamburgerComponent],
   imports: [SharedModule, ComponentsModule, NavServiceModule, MatExpansionModule],
 })
