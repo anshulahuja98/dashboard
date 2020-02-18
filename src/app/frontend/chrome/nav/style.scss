@@ -23,7 +23,7 @@
   white-space: nowrap;
 
   .mat-divider {
-    margin: $baseline-grid $baseline-grid (2 * $baseline-grid) 0;
+    margin: $baseline-grid (0.5 * $baseline-grid) (2 * $baseline-grid) 0;
   }
 
   // Children of kd-nav should not shrink to prevent layout issues on IE.
@@ -33,7 +33,7 @@
 }
 
 .kd-nav-group {
-  margin-right: $baseline-grid;
+  //margin-right: $baseline-grid;
   margin-top: $baseline-grid;
 
   &:last-child {
@@ -56,6 +56,7 @@
 .kd-nav-icon {
   margin-left: 1.5 * $baseline-grid;
   margin-top: 1.5 * $baseline-grid;
+  margin-right: (-3) * $baseline-grid;
 }
 
 .ns-selector {
