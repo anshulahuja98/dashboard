@@ -12,11 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, QueryList, ViewChildren} from '@angular/core';
 import {MatDrawer} from '@angular/material/sidenav';
 
 import {NavService} from '../../common/services/nav/service';
 import {PluginsConfigService} from '../../common/services/global/plugin';
+
+import {SatPopover} from '@ncstate/sat-popover';
 
 @Component({
   selector: 'kd-nav',
@@ -24,6 +26,17 @@ import {PluginsConfigService} from '../../common/services/global/plugin';
   styleUrls: ['./style.scss'],
 })
 export class NavComponent implements OnInit {
+  @ViewChildren(SatPopover) allPopovers: QueryList<SatPopover>;
+
+  selection: string[];
+
+  select(values: string[]) {
+    this.selection = values;
+
+    // close all popovers
+    this.allPopovers.forEach(p => p.close());
+  }
+
   @ViewChild(MatDrawer, {static: true}) private readonly nav_: MatDrawer;
 
   constructor(

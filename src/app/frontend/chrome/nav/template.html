@@ -18,37 +18,48 @@ limitations under the License.
   <mat-drawer class="kd-nav"
               mode="side">
     <div class="kd-nav-group">
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/cluster"
-                   id="nav-cluster"
-                   i18n>Cluster
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+
+<!--      <button [satPopoverAnchor]="menu" (click)="menu.toggle()">Menu</button>-->
+    <span>
+      <sat-popover #menu horizontalAlign="after" verticalAlign="start" hasBackdrop>
+        <div class="">
+                <kd-nav-item class="kd-nav-item menu-item"
                    state="/clusterrole"
                    id="nav-clusterrole"
                    i18n>Cluster Roles
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item class="kd-nav-item menu-item"
                    state="/namespace"
                    id="nav-namespace"
                    i18n>Namespaces
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item class="kd-nav-item menu-item"
                    state="/node"
                    id="nav-node"
                    i18n>Nodes
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item class="kd-nav-item menu-item"
                    state="/persistentvolume"
                    id="nav-persistentvolume"
                    i18n>Persistent Volumes
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
+      <kd-nav-item class="kd-nav-item menu-item"
                    state="/storageclass"
                    id="nav-storageclass"
                    i18n>Storage Classes
       </kd-nav-item>
+        </div>
+      </sat-popover>
+    </span>
+      <kd-nav-item [satPopoverAnchor]="menu" (mouseover)="menu.open()"
+                   class="kd-nav-group-item"
+                   state="/cluster"
+                   id="nav-cluster"
+                   i18n >Cluster
+      </kd-nav-item>
+
     </div>
+
 
     <mat-divider></mat-divider>
 

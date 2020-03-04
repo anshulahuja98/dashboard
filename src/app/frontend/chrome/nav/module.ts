@@ -22,10 +22,18 @@ import {NavComponent} from './component';
 import {HamburgerComponent} from './hamburger/component';
 import {NavItemComponent} from './item/component';
 import {PinnerNavComponent} from './pinner/component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SatPopoverModule} from '@ncstate/sat-popover';
 
 @NgModule({
   declarations: [NavComponent, NavItemComponent, HamburgerComponent, PinnerNavComponent],
   exports: [NavComponent, NavItemComponent, HamburgerComponent],
-  imports: [SharedModule, ComponentsModule, NavServiceModule],
+  imports: [
+    SharedModule,
+    ComponentsModule,
+    NavServiceModule,
+    BrowserAnimationsModule,
+    SatPopoverModule,
+  ],
 })
 export class NavModule {}
