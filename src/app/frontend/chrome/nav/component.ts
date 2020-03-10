@@ -35,14 +35,14 @@ export class NavComponent implements OnInit {
   // discoverMenu : 2
   // namespaceMenu: 3
   @ViewChildren(SatPopover) allPopovers: QueryList<SatPopover>;
-  expandOnHamburger = false;
+  expandOnHamburger = this.settings_.getShowHamburger();
 
 
   toggleExpandOnHamburger(): void {
-    console.log(this.settings_.getShowHamburger());
-    if(this.settings_.getShowHamburger()) {
+    // console.log(this.settings_.getShowHamburger());
+    // if(this.settings_.getShowHamburger()) {
       this.expandOnHamburger = !this.expandOnHamburger;
-    }
+    // }
   }
   selection: string[];
 
