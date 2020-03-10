@@ -13,10 +13,11 @@
 // limitations under the License.
 
 import {HttpClient} from '@angular/common/http';
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {AssetsService} from '../common/services/global/assets';
+import {SatPopover} from "@ncstate/sat-popover";
 
 class SystemBanner {
   message: string;
@@ -26,7 +27,7 @@ class SystemBanner {
 @Component({
   selector: 'kd-chrome',
   templateUrl: './template.html',
-  styleUrls: ['./style.scss'],
+  styleUrls: ['./style.scss']
 })
 export class ChromeComponent implements OnInit {
   private static readonly systemBannerEndpoint = 'api/v1/systembanner';

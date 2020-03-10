@@ -642,6 +642,7 @@ export interface CsrfToken {
 
 export interface LocalSettings {
   isThemeDark: boolean;
+  showHamburger: boolean
 }
 
 export interface AppConfig {

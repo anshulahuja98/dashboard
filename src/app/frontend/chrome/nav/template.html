@@ -14,183 +14,253 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<mat-drawer-container class="kd-nav">
+<mat-drawer-container
+  class="kd-nav" autosize>
   <mat-drawer class="kd-nav"
               mode="side">
-    <div class="kd-nav-group">
 
-<!--      <button [satPopoverAnchor]="menu" (click)="menu.toggle()">Menu</button>-->
-    <span>
-      <sat-popover #menu horizontalAlign="after" verticalAlign="start" hasBackdrop>
-        <div class="">
-                <kd-nav-item class="kd-nav-item menu-item"
-                   state="/clusterrole"
-                   id="nav-clusterrole"
-                   i18n>Cluster Roles
+
+    <sat-popover #clusterMenu horizontalAlign="after" verticalAlign="start">
+      <div class="sat-div">
+        <kd-nav-item
+          class="kd-nav-item menu-item"
+          state="/cluster"
+          i18n>Cluster
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/clusterrole"
+                     id="nav-clusterrole"
+                     i18n>Cluster Roles
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/namespace"
+                     id="nav-namespace"
+                     i18n>Namespaces
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/node"
+                     id="nav-node"
+                     i18n>Nodes
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/persistentvolume"
+                     id="nav-persistentvolume"
+                     i18n>Persistent Volumes
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/storageclass"
+                     id="nav-storageclass"
+                     i18n>Storage Classes
+        </kd-nav-item>
+      </div>
+    </sat-popover>
+
+    <span (mouseover)="open('0')">
+    <div class="kd-nav-group">
+            <kd-nav-item *ngIf="expandOnHamburger" [satPopoverAnchor]="clusterMenu"
+                         class="kd-nav-group-item"
+                         state="/cluster"
+                         i18n><mat-icon color="primary">group_work</mat-icon>
+              <span color="primary"> Cluster</span> <mat-icon color="primary">keyboard_arrow_right</mat-icon>
       </kd-nav-item>
-      <kd-nav-item class="kd-nav-item menu-item"
-                   state="/namespace"
-                   id="nav-namespace"
-                   i18n>Namespaces
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item menu-item"
-                   state="/node"
-                   id="nav-node"
-                   i18n>Nodes
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item menu-item"
-                   state="/persistentvolume"
-                   id="nav-persistentvolume"
-                   i18n>Persistent Volumes
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item menu-item"
-                   state="/storageclass"
-                   id="nav-storageclass"
-                   i18n>Storage Classes
-      </kd-nav-item>
-        </div>
-      </sat-popover>
-    </span>
-      <kd-nav-item [satPopoverAnchor]="menu" (mouseover)="menu.open()"
+      <kd-nav-item *ngIf="!expandOnHamburger" [satPopoverAnchor]="clusterMenu"
                    class="kd-nav-group-item"
                    state="/cluster"
-                   id="nav-cluster"
-                   i18n >Cluster
+                   i18n><mat-icon color="primary">group_work</mat-icon>
       </kd-nav-item>
-
     </div>
+      </span>
 
 
-    <mat-divider></mat-divider>
+    <sat-popover #workloadsMenu horizontalAlign="after" verticalAlign="start">
+      <div class="sat-div">
 
-    <kd-namespace-selector id="nav-namespace-selector">
-    </kd-namespace-selector>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/workloads"
+                     id="nav-workloads"
+                     i18n>Workloads
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/overview"
+                     id="nav-overview"
+                     i18n>Overview
+        </kd-nav-item>
 
+
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/cronjob"
+                     id="nav-cronjob"
+                     i18n>Cron Jobs
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/daemonset"
+                     id="nav-daemonset"
+                     i18n>Daemon Sets
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/deployment"
+                     id="nav-deployment"
+                     i18n>Deployments
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/job"
+                     id="nav-job"
+                     i18n>Jobs
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/pod"
+                     id="nav-pod"
+                     i18n>Pods
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/replicaset"
+                     id="nav-replicaset"
+                     i18n>Replica Sets
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/replicationcontroller"
+                     id="nav-replicationcontroller"
+                     i18n>Replication Controllers
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/statefulset"
+                     id="nav-statefulset"
+                     i18n>Stateful Sets
+        </kd-nav-item>
+      </div>
+    </sat-popover>
+
+    <span>
     <div class="kd-nav-group">
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/overview"
-                   id="nav-overview"
-                   i18n>Overview
-      </kd-nav-item>
 
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/workloads"
-                   id="nav-workloads"
-                   i18n>Workloads
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/cronjob"
-                   id="nav-cronjob"
-                   i18n>Cron Jobs
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/daemonset"
-                   id="nav-daemonset"
-                   i18n>Daemon Sets
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/deployment"
-                   id="nav-deployment"
-                   i18n>Deployments
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/job"
-                   id="nav-job"
-                   i18n>Jobs
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/pod"
-                   id="nav-pod"
-                   i18n>Pods
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/replicaset"
-                   id="nav-replicaset"
-                   i18n>Replica Sets
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/replicationcontroller"
-                   id="nav-replicationcontroller"
-                   i18n>Replication Controllers
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/statefulset"
-                   id="nav-statefulset"
-                   i18n>Stateful Sets
-      </kd-nav-item>
 
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/discovery"
-                   id="nav-discovery"
-                   i18n>Discovery and Load Balancing
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/ingress"
-                   id="nav-ingress"
-                   i18n>Ingresses
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/service"
-                   id="nav-service"
-                   i18n>Services
-      </kd-nav-item>
-
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/config"
-                   id="nav-config"
-                   i18n>Config and Storage
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/configmap"
-                   id="nav-configmap"
-                   i18n>Config Maps
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/persistentvolumeclaim"
-                   id="nav-persistentvolumeclaim"
-                   i18n>Persistent Volume Claims
-      </kd-nav-item>
-      <kd-nav-item class="kd-nav-item"
-                   state="/secret"
-                   id="nav-secret"
-                   i18n>Secrets
-      </kd-nav-item>
-      <kd-nav-item *ngIf="showPlugin()"
+      <kd-nav-item *ngIf="expandOnHamburger" [satPopoverAnchor]="workloadsMenu" (mouseover)="open('1')"
                    class="kd-nav-group-item"
-                   state="/plugin"
-                   id="nav-plugin"
-                   i18n>Plugins
+                   state="/overview"
+                   i18n>
+        <mat-icon color="primary">work</mat-icon>
+        <span color="primary"> Workloads</span> <mat-icon color="primary">keyboard_arrow_right</mat-icon>
+      </kd-nav-item>
+      <kd-nav-item *ngIf="!expandOnHamburger" [satPopoverAnchor]="workloadsMenu" (mouseover)="open('1')"
+                   class="kd-nav-group-item"
+                   state="/overview"
+                   i18n>
+        <mat-icon color="primary">work</mat-icon>
       </kd-nav-item>
     </div>
+      </span>
 
-    <mat-divider></mat-divider>
+
+    <sat-popover #discoveryMenu horizontalAlign="after" verticalAlign="start">
+      <div class="sat-div">
+
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/discovery"
+                     id="nav-discovery"
+                     i18n>Discovery and Load Balancing
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/ingress"
+                     id="nav-ingress"
+                     i18n>Ingresses
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/service"
+                     id="nav-service"
+                     i18n>Services
+        </kd-nav-item>
+
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/config"
+                     id="nav-config"
+                     i18n>Config and Storage
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/configmap"
+                     id="nav-configmap"
+                     i18n>Config Maps
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/persistentvolumeclaim"
+                     id="nav-persistentvolumeclaim"
+                     i18n>Persistent Volume Claims
+        </kd-nav-item>
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/secret"
+                     id="nav-secret"
+                     i18n>Secrets
+        </kd-nav-item>
+        <kd-nav-item *ngIf="showPlugin()"
+                     class="kd-nav-item menu-item"
+                     state="/plugin"
+                     id="nav-plugin"
+                     i18n>Plugins
+        </kd-nav-item>
+
+
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/customresourcedefinition"
+                     id="nav-customresourcedefinition"
+                     [exact]="true"
+                     i18n>Custom Resource Definitions
+        </kd-nav-item>
+
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/settings"
+                     id="nav-settings"
+                     i18n>Settings
+        </kd-nav-item>
+
+        <kd-nav-item class="kd-nav-item menu-item"
+                     state="/about"
+                     id="nav-about"
+                     i18n>About
+        </kd-nav-item>
+
+      </div>
+    </sat-popover>
 
     <div class="kd-nav-group">
-      <kd-nav-item class="kd-nav-group-item"
-                   id="sidebar-crd"
-                   state="/customresourcedefinition"
-                   id="nav-customresourcedefinition"
-                   [exact]="true"
-                   i18n>Custom Resource Definitions
-      </kd-nav-item>
-
-      <kd-pinner-nav kind="customresourcedefinition"></kd-pinner-nav>
+    <span>
+    <kd-nav-item *ngIf="expandOnHamburger" [satPopoverAnchor]="discoveryMenu" (mouseover)="open('2')"
+                 class="kd-nav-group-item"
+                 state="/discovery"
+                 i18n>
+      <mat-icon color="primary">equalizer</mat-icon>
+      <span color="primary"> Discovery and Load Balancing</span> <mat-icon color="primary">keyboard_arrow_right</mat-icon>
+    </kd-nav-item>
+      <kd-nav-item *ngIf="!expandOnHamburger" [satPopoverAnchor]="discoveryMenu" (mouseover)="open('2')"
+                   class="kd-nav-group-item"
+                   state="/discovery"
+                   i18n>
+      <mat-icon color="primary">equalizer</mat-icon>
+    </kd-nav-item>
+    </span>
     </div>
 
-    <mat-divider></mat-divider>
 
+    <sat-popover #namespaceMenu horizontalAlign="after" verticalAlign="start" class="ns-selector">
+      <div class="menu-item kd-nav-item ">
+        <kd-namespace-selector id="nav-namespace-selector">
+        </kd-namespace-selector>
+      </div>
+    </sat-popover>
     <div class="kd-nav-group">
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/settings"
-                   id="nav-settings"
-                   i18n>Settings
-      </kd-nav-item>
-
-      <kd-nav-item class="kd-nav-group-item"
-                   state="/about"
-                   id="nav-about"
-                   i18n>About
-      </kd-nav-item>
+    <span>
+    <kd-nav-item *ngIf="expandOnHamburger" [satPopoverAnchor]="namespaceMenu" (mouseover)="open('3')"
+                 class="kd-nav-group-item "
+                 state="/namespace"
+                 i18n>
+      <mat-icon color="primary">toc</mat-icon>
+      <span color="primary"> Namespace</span> <mat-icon color="primary">keyboard_arrow_right</mat-icon>
+    </kd-nav-item>
+      <kd-nav-item *ngIf="!expandOnHamburger" [satPopoverAnchor]="namespaceMenu" (mouseover)="open('3')"
+                   class="kd-nav-group-item "
+                   state="/namespace"
+                   i18n>
+      <mat-icon color="primary">toc</mat-icon>
+    </kd-nav-item>
+      </span>
     </div>
   </mat-drawer>
 </mat-drawer-container>

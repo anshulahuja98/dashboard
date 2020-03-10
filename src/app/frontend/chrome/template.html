@@ -54,7 +54,13 @@ limitations under the License.
   <mat-toolbar class="kd-second-toolbar kd-bg-primary">
     <div class="kd-toolbar-tools"
          fxFlex>
-      <kd-nav-hamburger fxFlex="none"></kd-nav-hamburger>
+
+      <button (click)="sideNav.toggleExpandOnHamburger()"
+              mat-icon-button
+              class="kd-accent">
+        <mat-icon>menu</mat-icon>
+      </button>
+
       <kd-breadcrumbs class="kd-actionbar-breadcrumbs"></kd-breadcrumbs>
       <kd-actionbar fxFlex="end"></kd-actionbar>
     </div>
@@ -69,7 +75,7 @@ limitations under the License.
   <div fxFlex
        fxLayout="row"
        class="kd-chrome-container kd-bg-background">
-    <kd-nav></kd-nav>
+    <kd-nav #sideNav></kd-nav>
     <div [ngSwitch]="loading"
          fxLayoutAlign="center"
          fxFlex

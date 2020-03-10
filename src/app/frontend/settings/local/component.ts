@@ -29,4 +29,8 @@ export class LocalSettingsComponent implements OnInit {
   onThemeChange(): void {
     this.settings_.handleThemeChange(this.settings.isThemeDark);
   }
+  onShowHamburger(): void {
+    this.settings_.handleShowHamburger(this.settings.showHamburger);
+  }
+
 }

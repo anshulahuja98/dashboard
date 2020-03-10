@@ -12,13 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {Component, OnInit, ViewChild, QueryList, ViewChildren} from '@angular/core';
+import {Component, OnInit, ViewChild, QueryList, ViewChildren, HostListener} from '@angular/core';
 import {MatDrawer} from '@angular/material/sidenav';
 
 import {NavService} from '../../common/services/nav/service';
 import {PluginsConfigService} from '../../common/services/global/plugin';
 
 import {SatPopover} from '@ncstate/sat-popover';
+import {LocalSettingsService} from "../../common/services/global/localsettings";
 
 @Component({
   selector: 'kd-nav',
@@ -26,15 +27,33 @@ import {SatPopover} from '@ncstate/sat-popover';
   styleUrls: ['./style.scss'],
 })
 export class NavComponent implements OnInit {
-  @ViewChildren(SatPopover) allPopovers: QueryList<SatPopover>;
 
+
+
+  // clusterMenu : 0
+  // workloadsMenu : 1
+  // discoverMenu : 2
+  // namespaceMenu: 3
+  @ViewChildren(SatPopover) allPopovers: QueryList<SatPopover>;
+  expandOnHamburger = false;
+
+
+  toggleExpandOnHamburger(): void {
+    console.log(this.settings_.getShowHamburger());
+    if(this.settings_.getShowHamburger()) {
+      this.expandOnHamburger = !this.expandOnHamburger;
+    }
+  }
   selection: string[];
 
-  select(values: string[]) {
-    this.selection = values;
-
-    // close all popovers
-    this.allPopovers.forEach(p => p.close());
+  open(popover: string){
+    this.allPopovers.toArray()[parseInt(popover)].open();
+    console.log(this.allPopovers.toArray()[parseInt(popover)]);
+    for (let i = 0; i < this.allPopovers.length; i++) {
+      if(i!=parseInt(popover)){
+        this.allPopovers.toArray()[i].close();
+      }
+    }
   }
 
   @ViewChild(MatDrawer, {static: true}) private readonly nav_: MatDrawer;
@@ -42,6 +61,7 @@ export class NavComponent implements OnInit {
   constructor(
     private readonly navService_: NavService,
     private readonly pluginsConfigService_: PluginsConfigService,
+    private readonly settings_: LocalSettingsService
   ) {}
 
   ngOnInit(): void {
@@ -52,4 +72,8 @@ export class NavComponent implements OnInit {
   showPlugin(): boolean {
     return this.pluginsConfigService_.status() === 200;
   }
+  @HostListener('document:click') closeAll(){
+    this.allPopovers.forEach(p => p.close());
+  }
+
 }

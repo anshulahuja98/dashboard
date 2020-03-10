@@ -15,6 +15,10 @@
 @import '../../variables';
 
 .kd-nav {
+  margin-left:  0.5 * $baseline-grid;
+  //margin-top: 1.5 * $baseline-grid;
+  margin-right: (-2) * $baseline-grid;
+
   background-color: transparent;
   font-size: $body-font-size-base;
   height: 100%;
@@ -33,7 +37,12 @@
 }
 
 .kd-nav-group {
-  margin-right: $baseline-grid;
+
+    //margin-left:  $baseline-grid;
+    //margin-top: 1.5 * $baseline-grid;
+    //margin-right: (-2) * $baseline-grid;
+
+  //margin-right: $baseline-grid;
 
   &:last-child {
     > .kd-nav-item {
@@ -45,12 +54,18 @@
 }
 
 .kd-nav-group-item {
-  margin-left: 1.5 * $baseline-grid;
+  //margin-left: 1.5 * $baseline-grid;
 }
 
 .kd-nav-item {
-  //margin-left: 3 * $baseline-grid;
+  //margin: $baseline-grid;
+  //margin-left: 0;
+  padding: 0.5 * $baseline-grid;
 }
+.ns-selector {
+  margin-top: 1.5 * $baseline-grid;
+}
+
 
 
 //
@@ -73,12 +88,30 @@
   display: block;
   background: white;
   //padding: 16px;
-  border: none;
   width: 100%;
-  border-radius: 0;
+  //border-radius: 0;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
 
   &:focus {
     outline: none;
     background: rgba(0,0,0,0.06);
   }
+
+}
+
+.sat-div{
+
+  //border-radius: 5px;
+  padding-right: $baseline-grid;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+}
+
+.kd-nav-icon {
+  margin-left: 1.5 * $baseline-grid;
+  margin-top: 1.5 * $baseline-grid;
+  margin-right: (-3) * $baseline-grid;
 }

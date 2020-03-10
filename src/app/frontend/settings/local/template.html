@@ -33,5 +33,16 @@ limitations under the License.
                           (change)="onThemeChange()"></mat-slide-toggle>
       </div>
     </kd-settings-entry>
+    <kd-settings-entry key="Show Expanded Menu"
+                       i18n-key
+                       desc="Show hamburger to toggle expanded navbar menu"
+                       i18n-desc>
+      <div fxFlex>
+        <mat-slide-toggle color="primary"
+                          name="isThemeDark"
+                          [(ngModel)]="settings.showHamburger"
+                          (change)="onShowHamburger()"></mat-slide-toggle>
+      </div>
+    </kd-settings-entry>
   </div>
 </kd-card>

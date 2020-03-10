@@ -23,6 +23,7 @@ export class LocalSettingsService {
   private readonly cookieName_ = 'localSettings';
   private settings_: LocalSettings = {
     isThemeDark: false,
+    showHamburger: false
   };
 
   constructor(private readonly theme_: ThemeService, private readonly cookies_: CookieService) {}
@@ -32,6 +33,13 @@ export class LocalSettingsService {
     if (cookieValue && cookieValue.length > 0) {
       this.settings_ = JSON.parse(cookieValue);
     }
+  }
+  handleShowHamburger(showHamburger: boolean): void {
+    this.settings_.showHamburger = showHamburger;
+    this.updateCookie_();
+  }
+  getShowHamburger() :boolean{
+    return this.settings_.showHamburger;
   }
 
   get(): LocalSettings {
