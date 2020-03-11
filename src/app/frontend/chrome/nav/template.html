@@ -20,10 +20,11 @@ limitations under the License.
               mode="side">
 
 
-    <sat-popover #clusterMenu horizontalAlign="after" verticalAlign="start">
+    <sat-popover id="clusterMenu" #clusterMenu horizontalAlign="after" verticalAlign="start">
       <div class="sat-div">
         <kd-nav-item
-          class="kd-nav-item menu-item"
+          *ngIf="!expandOnHamburger"
+          class="kd-nav-item menu-item popup-heading"
           state="/cluster"
           i18n>Cluster
         </kd-nav-item>
@@ -56,17 +57,13 @@ limitations under the License.
     </sat-popover>
 
     <span (mouseover)="open('0')">
-    <div class="kd-nav-group">
-            <kd-nav-item *ngIf="expandOnHamburger" [satPopoverAnchor]="clusterMenu"
+    <div class="kd-nav-group ">
+            <kd-nav-item  [satPopoverAnchor]="clusterMenu"
+                         [ngStyle]="{'background': clusterMenu.isOpen() ? 'lightgrey' : 'transparent' }"
                          class="kd-nav-group-item"
                          state="/cluster"
                          i18n><mat-icon color="primary">group_work</mat-icon>
-              <span color="primary"> Cluster</span>
-      </kd-nav-item>
-      <kd-nav-item *ngIf="!expandOnHamburger" [satPopoverAnchor]="clusterMenu"
-                   class="kd-nav-group-item"
-                   state="/cluster"
-                   i18n><mat-icon color="primary">group_work</mat-icon>
+              <span *ngIf="expandOnHamburger"> Cluster</span>
       </kd-nav-item>
     </div>
       </span>
@@ -75,7 +72,8 @@ limitations under the License.
     <sat-popover #workloadsMenu horizontalAlign="after" verticalAlign="start">
       <div class="sat-div">
 
-        <kd-nav-item class="kd-nav-item menu-item"
+        <kd-nav-item *ngIf="!expandOnHamburger"
+                     class="kd-nav-item menu-item popup-heading"
                      state="/workloads"
                      id="nav-workloads"
                      i18n>Workloads
@@ -134,18 +132,13 @@ limitations under the License.
     <div class="kd-nav-group">
 
 
-      <kd-nav-item *ngIf="expandOnHamburger" [satPopoverAnchor]="workloadsMenu" (mouseover)="open('1')"
+      <kd-nav-item [satPopoverAnchor]="workloadsMenu" (mouseover)="open('1')"
+                   [ngStyle]="{'background': workloadsMenu.isOpen() ? 'lightgrey' : 'transparent' }"
                    class="kd-nav-group-item"
                    state="/overview"
                    i18n>
         <mat-icon color="primary">work</mat-icon>
-        <span color="primary"> Workloads</span>
-      </kd-nav-item>
-      <kd-nav-item *ngIf="!expandOnHamburger" [satPopoverAnchor]="workloadsMenu" (mouseover)="open('1')"
-                   class="kd-nav-group-item"
-                   state="/overview"
-                   i18n>
-        <mat-icon color="primary">work</mat-icon>
+        <span *ngIf="expandOnHamburger"> Workloads</span>
       </kd-nav-item>
     </div>
       </span>
@@ -154,7 +147,8 @@ limitations under the License.
     <sat-popover #discoveryMenu horizontalAlign="after" verticalAlign="start">
       <div class="sat-div">
 
-        <kd-nav-item class="kd-nav-item menu-item"
+        <kd-nav-item *ngIf="!expandOnHamburger"
+                     class="kd-nav-item menu-item popup-heading"
                      state="/discovery"
                      id="nav-discovery"
                      i18n>Discovery and Load Balancing
@@ -222,18 +216,13 @@ limitations under the License.
 
     <div class="kd-nav-group">
     <span>
-    <kd-nav-item *ngIf="expandOnHamburger" [satPopoverAnchor]="discoveryMenu" (mouseover)="open('2')"
+    <kd-nav-item  [satPopoverAnchor]="discoveryMenu" (mouseover)="open('2')"
+                  [ngStyle]="{'background': discoveryMenu.isOpen() ? 'lightgrey' : 'transparent' }"
                  class="kd-nav-group-item"
                  state="/discovery"
                  i18n>
       <mat-icon color="primary">equalizer</mat-icon>
-      <span color="primary"> Discovery and Load Balancing</span>
-    </kd-nav-item>
-      <kd-nav-item *ngIf="!expandOnHamburger" [satPopoverAnchor]="discoveryMenu" (mouseover)="open('2')"
-                   class="kd-nav-group-item"
-                   state="/discovery"
-                   i18n>
-      <mat-icon color="primary">equalizer</mat-icon>
+      <span *ngIf="expandOnHamburger"> Discovery and Load Balancing</span>
     </kd-nav-item>
     </span>
     </div>
@@ -247,18 +236,13 @@ limitations under the License.
     </sat-popover>
     <div class="kd-nav-group">
     <span>
-    <kd-nav-item *ngIf="expandOnHamburger" [satPopoverAnchor]="namespaceMenu" (mouseover)="open('3')"
+    <kd-nav-item  [satPopoverAnchor]="namespaceMenu" (mouseover)="open('3')"
+                  [ngStyle]="{'background': namespaceMenu.isOpen() ? 'lightgrey' : 'transparent' }"
                  class="kd-nav-group-item "
                  state="/namespace"
                  i18n>
       <mat-icon color="primary">toc</mat-icon>
-      <span color="primary"> Namespace</span>
-    </kd-nav-item>
-      <kd-nav-item *ngIf="!expandOnHamburger" [satPopoverAnchor]="namespaceMenu" (mouseover)="open('3')"
-                   class="kd-nav-group-item "
-                   state="/namespace"
-                   i18n>
-      <mat-icon color="primary">toc</mat-icon>
+      <span *ngIf="expandOnHamburger"> Namespace</span>
     </kd-nav-item>
       </span>
     </div>

@@ -39,16 +39,12 @@ export class NavComponent implements OnInit {
 
 
   toggleExpandOnHamburger(): void {
-    // console.log(this.settings_.getShowHamburger());
-    // if(this.settings_.getShowHamburger()) {
       this.expandOnHamburger = !this.expandOnHamburger;
-    // }
   }
   selection: string[];
 
   open(popover: string){
     this.allPopovers.toArray()[parseInt(popover)].open();
-    console.log(this.allPopovers.toArray()[parseInt(popover)]);
     for (let i = 0; i < this.allPopovers.length; i++) {
       if(i!=parseInt(popover)){
         this.allPopovers.toArray()[i].close();
