@@ -64,6 +64,7 @@
 }
 .ns-selector {
   margin-top: 1.5 * $baseline-grid;
+  background: #326DE6;
 }
 
 
@@ -87,6 +88,23 @@
 .menu-item {
   display: block;
   background: white;
+
+  //padding: 16px;
+  width: 100%;
+  //border-radius: 0;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+
+  &:focus {
+    outline: none;
+    background: rgba(0,0,0,0.06);
+  }
+
+}
+.ns-menu-item {
+  display: block;
+  background: #326DE6;
   //padding: 16px;
   width: 100%;
   //border-radius: 0;
@@ -105,9 +123,9 @@
 
   //border-radius: 5px;
   padding-right: $baseline-grid;
-  border-style: solid;
-  border-color: lightgray;
-  border-width: 1px;
+  //border-style: solid;
+  //border-color: lightgray;
+  //border-width: 1px;
 }
 
 .kd-nav-icon {
@@ -117,6 +135,7 @@
 }
 
 .popup-heading{
-  background: lightgrey;
+  background: #326DE6;
   font-weight: bolder;
 }
+

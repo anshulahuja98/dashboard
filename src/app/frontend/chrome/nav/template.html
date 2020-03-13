@@ -229,11 +229,13 @@ limitations under the License.
 
 
     <sat-popover #namespaceMenu horizontalAlign="after" verticalAlign="start" class="ns-selector">
-      <div class="menu-item kd-nav-item ">
+      <div class="menu-item kd-nav-item  ">
         <kd-namespace-selector id="nav-namespace-selector">
         </kd-namespace-selector>
       </div>
     </sat-popover>
+
+
     <div class="kd-nav-group">
     <span>
     <kd-nav-item  [satPopoverAnchor]="namespaceMenu" (mouseover)="open('3')"
@@ -245,6 +247,29 @@ limitations under the License.
       <span *ngIf="expandOnHamburger"> Namespace</span>
     </kd-nav-item>
       </span>
+    </div>
+    <sat-popover #dummyMenu horizontalAlign="after" verticalAlign="start" >
+      <div class="sat-div ">
+
+        <kd-nav-item *ngIf="!expandOnHamburger"
+                     class="kd-nav-item menu-item popup-heading"
+          state="/discovery"
+
+          i18n>Dummy
+        </kd-nav-item>
+      </div>
+    </sat-popover>
+    <div class="kd-nav-group">
+    <span>
+    <kd-nav-item  [satPopoverAnchor]="dummyMenu" (mouseover)="open('4')"
+                  [ngStyle]="{'background': dummyMenu.isOpen() ? 'lightgrey' : 'transparent' }"
+                  class="kd-nav-group-item"
+                  state="/discovery"
+                  i18n>
+      <mat-icon color="primary">equalizer</mat-icon>
+      <span *ngIf="expandOnHamburger"> Dummy</span>
+    </kd-nav-item>
+    </span>
     </div>
   </mat-drawer>
 </mat-drawer-container>
