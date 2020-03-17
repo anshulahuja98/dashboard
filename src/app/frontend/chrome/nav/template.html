@@ -229,16 +229,20 @@ limitations under the License.
 
 
     <sat-popover #namespaceMenu horizontalAlign="after" verticalAlign="start" class="ns-selector">
-      <div class="menu-item kd-nav-item  ">
-        <span *ngIf="!expandOnHamburger" class=" popup-heading kd-namespace-select-title" >Namespaces</span>
-<!--        <kd-nav-item *ngIf="!expandOnHamburger"-->
-<!--                     class=" popup-heading kd-namespace-select-title"-->
-<!--                     state="//"-->
-<!--                     i18n>Namespaces-->
-<!--        </kd-nav-item>-->
+      <div class="sat-div ns-sat">
+<!--      <div class="menu-item kd-nav-item  ">-->
+
+<!--        <span *ngIf="!expandOnHamburger" class=" popup-heading kd-namespace-select-title" >Namespaces</span>-->
+        <kd-nav-item *ngIf="!expandOnHamburger"
+                     exact="false"
+                     class=" popup-heading kd-namespace-select-title"
+                     state="//"
+                     i18n><span style="color: white;">Namespaces</span>
+        </kd-nav-item>
 
         <kd-namespace-selector id="nav-namespace-selector">
         </kd-namespace-selector>
+<!--      </div>-->
       </div>
     </sat-popover>
 
